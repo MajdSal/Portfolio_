@@ -1,0 +1,81 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* ----------------------------------------------------------------------------
+   Global design tokens & base
+---------------------------------------------------------------------------- */
+@layer base {
+  :root {
+    color-scheme: dark;
+  }
+
+  html,
+  body,
+  #root {
+    background-color: #0c0c0c;
+    color: #d7e2ea;
+    font-family: 'Kanit', system-ui, sans-serif;
+    /* Prevent horizontal scrollbars from full-bleed canvases & marquees */
+    overflow-x: clip;
+  }
+
+  body {
+    margin: 0;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    text-rendering: optimizeLegibility;
+  }
+
+  /* Fluid type helpers used across sections */
+  ::selection {
+    background: rgba(182, 0, 168, 0.35);
+    color: #ffffff;
+  }
+}
+
+@layer components {
+  /* Smooth metallic gradient for the hero heading */
+  .hero-heading {
+    background: linear-gradient(180deg, #646973 0%, #bbccd7 100%);
+    -webkit-background-clip: text;
+    background-clip: text;
+    -webkit-text-fill-color: transparent;
+    color: transparent;
+  }
+
+  /* Inverse gradient for dark-on-light section headers */
+  .ink-heading {
+    background: linear-gradient(180deg, #1a1a1a 0%, #4a4f59 100%);
+    -webkit-background-clip: text;
+    background-clip: text;
+    -webkit-text-fill-color: transparent;
+    color: transparent;
+  }
+}
+
+@layer utilities {
+  .fluid-hero {
+    font-size: clamp(3.5rem, 13vw, 16rem);
+  }
+
+  .text-balance {
+    text-wrap: balance;
+  }
+
+  /* Custom thin scrollbar to match the dark theme */
+  .scroll-clip {
+    overflow-x: clip;
+  }
+}
+
+/* Respect reduced-motion preferences for the heavier animations */
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.001ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.001ms !important;
+  }
+}
