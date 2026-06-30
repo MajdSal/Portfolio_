@@ -3,7 +3,7 @@ import { Mail, Github, Linkedin, MapPin } from 'lucide-react';
 import ContactButton from '../components/ContactButton';
 
 const LINKS = [
-  { label: 'Email', icon: Mail, href: 'mailto:hello@majdallah.dev' },
+  { label: 'Email', icon: Mail, href: 'mailto:majdosama614@gmail.com' },
   { label: 'GitHub', icon: Github, href: 'https://github.com/MajdSal' },
   { label: 'LinkedIn', icon: Linkedin, href: 'https://www.linkedin.com/in/mjad-sal-727998374/' },
 ];
