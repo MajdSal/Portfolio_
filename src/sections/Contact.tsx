@@ -4,8 +4,8 @@ import ContactButton from '../components/ContactButton';
 
 const LINKS = [
   { label: 'Email', icon: Mail, href: 'mailto:hello@majdallah.dev' },
-  { label: 'GitHub', icon: Github, href: 'https://github.com' },
-  { label: 'LinkedIn', icon: Linkedin, href: 'https://linkedin.com' },
+  { label: 'GitHub', icon: Github, href: 'https://github.com/MajdSal' },
+  { label: 'LinkedIn', icon: Linkedin, href: 'https://www.linkedin.com/in/mjad-sal-727998374/' },
 ];
 
 const Contact = () => {
@@ -51,7 +51,7 @@ const Contact = () => {
         </p>
 
         <div className="mt-10 flex justify-center">
-          <ContactButton href="mailto:hello@majdallah.dev" />
+          <ContactButton href="mailto:majdosama614@gmail.com" />
         </div>
 
         <div className="mt-12 flex flex-wrap items-center justify-center gap-x-8 gap-y-3">
