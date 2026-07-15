@@ -7,6 +7,7 @@ import {
 } from 'framer-motion';
 import { Bot, Clapperboard, PackageSearch } from 'lucide-react';
 import LiveProjectButton from '../components/LiveProjectButton';
+import { useLang } from '../i18n';
 
 interface Project {
   index: string;
@@ -18,34 +19,11 @@ interface Project {
   to: string;
 }
 
-const PROJECTS: Project[] = [
-  {
-    index: '01',
-    title: 'CrewAI Automation Suite',
-    desc: 'Multi-agent orchestration layer driving real-time web-scraping pipelines and interactive data analysis modules.',
-    tags: ['CrewAI', 'Python', 'Realtime', 'Data Analysis'],
-    icon: Bot,
-    from: '#2a0f24',
-    to: '#6e1e5a',
-  },
-  {
-    index: '02',
-    title: 'NextLevel Studio Systems',
-    desc: 'Clean production-grade application engineered for scalable media workflow distribution.',
-    tags: ['React', 'TypeScript', 'Media', 'Workflow'],
-    icon: Clapperboard,
-    from: '#0A1626',
-    to: '#1f4d6b',
-  },
-  {
-    index: '03',
-    title: 'Humanitarian Logistical Hubs',
-    desc: 'Specialized data analytics interface helping streamline multi-site parcel monitoring systems.',
-    tags: ['Analytics', 'Logistics', 'Dashboards', 'Field Ops'],
-    icon: PackageSearch,
-    from: '#241033',
-    to: '#5a1e6e',
-  },
+// Visual identity per project; title/desc/tags come from the i18n dict.
+const PROJECT_STYLE = [
+  { index: '01', icon: Bot, from: '#2a0f24', to: '#6e1e5a' },
+  { index: '02', icon: Clapperboard, from: '#0A1626', to: '#1f4d6b' },
+  { index: '03', icon: PackageSearch, from: '#241033', to: '#5a1e6e' },
 ];
 
 interface CardProps {
@@ -54,9 +32,10 @@ interface CardProps {
   total: number;
   progress: MotionValue<number>;
   range: [number, number];
+  liveLabel: string;
 }
 
-const Card = ({ project, i, total, progress, range }: CardProps) => {
+const Card = ({ project, i, total, progress, range, liveLabel }: CardProps) => {
   // Each card scales down slightly as later cards stack over it.
   const targetScale = 1 - (total - 1 - i) * 0.04;
   const scale = useTransform(progress, range, [1, targetScale]);
@@ -111,7 +90,7 @@ const Card = ({ project, i, total, progress, range }: CardProps) => {
           </div>
 
           <div className="mt-8">
-            <LiveProjectButton href="#contact" />
+            <LiveProjectButton href="#contact" label={liveLabel} />
           </div>
         </div>
       </motion.div>
@@ -121,31 +100,38 @@ const Card = ({ project, i, total, progress, range }: CardProps) => {
 
 const Projects = () => {
   const container = useRef<HTMLDivElement | null>(null);
+  const { t } = useLang();
   const { scrollYProgress } = useScroll({
     target: container,
     offset: ['start start', 'end end'],
   });
 
+  const projects: Project[] = t.projects.items.map((item, i) => ({
+    ...item,
+    ...PROJECT_STYLE[i],
+  }));
+
   return (
     <section id="projects" className="relative z-10 bg-[#0C0C0C]">
       <div className="mx-auto max-w-[1600px] px-5 pt-24 sm:px-8 lg:px-12">
         <h2 className="font-semibold tracking-[-0.02em] text-glass text-[clamp(2.25rem,6vw,5rem)] leading-[0.95]">
-          Projects
+          {t.projects.heading}
         </h2>
         <p className="mt-4 max-w-md text-[clamp(0.95rem,1.2vw,1.15rem)] font-light text-glass/60">
-          A stacking deck of shipped systems — scroll to flip through.
+          {t.projects.subtitle}
         </p>
       </div>
 
       <div ref={container} className="relative">
-        {PROJECTS.map((project, i) => (
+        {projects.map((project, i) => (
           <Card
             key={project.index}
             project={project}
             i={i}
-            total={PROJECTS.length}
+            total={projects.length}
             progress={scrollYProgress}
-            range={[i / PROJECTS.length, 1]}
+            range={[i / projects.length, 1]}
+            liveLabel={t.projects.viewLive}
           />
         ))}
       </div>

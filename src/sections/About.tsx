@@ -6,9 +6,7 @@ import {
   type MotionValue,
 } from 'framer-motion';
 import { Moon, Box, Hexagon, Sparkle } from 'lucide-react';
-
-const COPY =
-  "With a Bachelor's degree in Software Engineering (87% GPA) and extensive dual-domain experience across engineering development and humanitarian operations with bodies like Save the Children, I manage scalable automation layers and robust digital architectures. Let's engineer something impact-driven.";
+import { useLang } from '../i18n';
 
 interface WordProps {
   children: ReactNode;
@@ -20,7 +18,7 @@ const Word = ({ children, range, progress }: WordProps) => {
   const opacity = useTransform(progress, range, [0.12, 1]);
   const y = useTransform(progress, range, [6, 0]);
   return (
-    <span className="relative mr-[0.28em] mt-[0.18em] inline-block">
+    <span className="relative me-[0.28em] mt-[0.18em] inline-block">
       <motion.span style={{ opacity, y }} className="inline-block">
         {children}
       </motion.span>
@@ -30,12 +28,13 @@ const Word = ({ children, range, progress }: WordProps) => {
 
 const About = () => {
   const container = useRef<HTMLDivElement | null>(null);
+  const { t } = useLang();
   const { scrollYProgress } = useScroll({
     target: container,
     offset: ['start 0.85', 'start 0.18'],
   });
 
-  const words = COPY.split(' ');
+  const words = t.about.copy.split(' ');
 
   return (
     <section
@@ -71,7 +70,7 @@ const About = () => {
           transition={{ duration: 0.8, ease: [0.22, 1, 0.36, 1] }}
           className="mb-14 text-center font-semibold tracking-[-0.02em] text-glass text-[clamp(2.5rem,7vw,6rem)] sm:mb-20"
         >
-          About me
+          {t.about.heading}
         </motion.h2>
 
         <div ref={container} className="relative">

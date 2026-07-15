@@ -20,6 +20,14 @@
     overflow-x: clip;
   }
 
+  /* Arabic mode: swap the Latin display face (Kanit) for Cairo, which
+     carries full Arabic glyph coverage. Direction is handled via <html dir>. */
+  html.lang-ar,
+  html.lang-ar body,
+  html.lang-ar #root {
+    font-family: 'Cairo', 'Kanit', system-ui, sans-serif;
+  }
+
   body {
     margin: 0;
     -webkit-font-smoothing: antialiased;

@@ -1,12 +1,16 @@
 import { useState, useEffect } from 'react';
 import { motion } from 'framer-motion';
 import { Menu, X } from 'lucide-react';
+import { useLang } from '../i18n';
+import LanguageToggle from './LanguageToggle';
 
-const NAV_KEYS = ['About', 'Services', 'Projects', 'Contact'] as const;
+// Anchor targets stay constant; only the visible label is translated.
+const NAV_KEYS = ['about', 'services', 'projects', 'contact'] as const;
 
 const Navbar = () => {
   const [open, setOpen] = useState(false);
   const [scrolled, setScrolled] = useState(false);
+  const { t } = useLang();
 
   useEffect(() => {
     const onScroll = () => setScrolled(window.scrollY > 24);
@@ -39,25 +43,31 @@ const Navbar = () => {
           {NAV_KEYS.map((key) => (
             <li key={key}>
               <a
-                href={`#${key.toLowerCase()}`}
+                href={`#${key}`}
                 className="group relative uppercase tracking-[0.2em] text-glass/90 text-[0.9rem] lg:text-[1.4rem] transition-colors duration-300 hover:text-white"
               >
-                {key}
-                <span className="absolute -bottom-1 left-0 h-px w-0 bg-soft-pink transition-all duration-300 group-hover:w-full" />
+                {t.nav[key]}
+                <span className="absolute -bottom-1 left-0 h-px w-0 bg-soft-pink transition-all duration-300 group-hover:w-full ltr:left-0 rtl:right-0" />
               </a>
             </li>
           ))}
+          <li>
+            <LanguageToggle />
+          </li>
         </ul>
 
-        {/* Mobile toggle */}
-        <button
-          type="button"
-          aria-label="Toggle navigation"
-          onClick={() => setOpen((v) => !v)}
-          className="md:hidden text-glass"
-        >
-          {open ? <X size={26} /> : <Menu size={26} />}
-        </button>
+        {/* Mobile controls */}
+        <div className="flex items-center gap-3 md:hidden">
+          <LanguageToggle />
+          <button
+            type="button"
+            aria-label="Toggle navigation"
+            onClick={() => setOpen((v) => !v)}
+            className="text-glass"
+          >
+            {open ? <X size={26} /> : <Menu size={26} />}
+          </button>
+        </div>
       </nav>
 
       {/* Mobile menu */}
@@ -71,11 +81,11 @@ const Navbar = () => {
           {NAV_KEYS.map((key) => (
             <li key={key}>
               <a
-                href={`#${key.toLowerCase()}`}
+                href={`#${key}`}
                 onClick={() => setOpen(false)}
                 className="block py-3 uppercase tracking-[0.25em] text-glass/90 hover:text-white"
               >
-                {key}
+                {t.nav[key]}
               </a>
             </li>
           ))}

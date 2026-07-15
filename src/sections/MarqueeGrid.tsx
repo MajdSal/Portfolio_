@@ -22,6 +22,7 @@ import {
   Bot,
   ServerCog,
 } from 'lucide-react';
+import { useLang } from '../i18n';
 
 /** Keep a value within the [min, max) range, wrapping around the edges. */
 function wrap(min: number, max: number, value: number) {
@@ -37,22 +38,24 @@ type Tile = {
   to: string;
 };
 
-const ENGINEERING: Tile[] = [
-  { label: 'Modular APIs', sub: 'Decoupled services', icon: <ServerCog />, from: '#1a0f2e', to: '#3a1052' },
-  { label: 'Multi-Agent Mesh', sub: 'CrewAI orchestration', icon: <Bot />, from: '#0A1626', to: '#173a5e' },
-  { label: 'CI / CD Pipelines', sub: 'Continuous delivery', icon: <GitBranch />, from: '#241033', to: '#5a1e6e' },
-  { label: 'Data Pipelines', sub: 'ETL & ingestion', icon: <Database />, from: '#0A1626', to: '#1f4d6b' },
-  { label: 'System Design', sub: 'Scalable layers', icon: <Boxes />, from: '#2a0f24', to: '#6e1e5a' },
-  { label: 'Edge Compute', sub: 'Low-latency runtime', icon: <Cpu />, from: '#101a2e', to: '#2b4d7a' },
+// Visual identity (icon + gradient) lives here; text comes from the i18n dict
+// and is merged by index at render time.
+const ENGINEERING_STYLE = [
+  { icon: <ServerCog />, from: '#1a0f2e', to: '#3a1052' },
+  { icon: <Bot />, from: '#0A1626', to: '#173a5e' },
+  { icon: <GitBranch />, from: '#241033', to: '#5a1e6e' },
+  { icon: <Database />, from: '#0A1626', to: '#1f4d6b' },
+  { icon: <Boxes />, from: '#2a0f24', to: '#6e1e5a' },
+  { icon: <Cpu />, from: '#101a2e', to: '#2b4d7a' },
 ];
 
-const SCREENS: Tile[] = [
-  { label: 'Dashboard UI', sub: 'Realtime analytics', icon: <LayoutDashboard />, from: '#161024', to: '#3a1c5e' },
-  { label: 'Workflow Studio', sub: 'Automation canvas', icon: <Workflow />, from: '#0A1626', to: '#1f4d6b' },
-  { label: 'Media Grader', sub: 'Color & tone', icon: <Camera />, from: '#2a0f24', to: '#7a1e63' },
-  { label: 'Responsive App', sub: 'Mobile-first', icon: <MonitorSmartphone />, from: '#101a2e', to: '#34557f' },
-  { label: 'CLI Toolkit', sub: 'DevOps console', icon: <Terminal />, from: '#1a0f2e', to: '#4a1c6e' },
-  { label: 'Component Lib', sub: 'Design system', icon: <Layers />, from: '#0A1626', to: '#255a7a' },
+const SCREENS_STYLE = [
+  { icon: <LayoutDashboard />, from: '#161024', to: '#3a1c5e' },
+  { icon: <Workflow />, from: '#0A1626', to: '#1f4d6b' },
+  { icon: <Camera />, from: '#2a0f24', to: '#7a1e63' },
+  { icon: <MonitorSmartphone />, from: '#101a2e', to: '#34557f' },
+  { icon: <Terminal />, from: '#1a0f2e', to: '#4a1c6e' },
+  { icon: <Layers />, from: '#0A1626', to: '#255a7a' },
 ];
 
 const TileCard = ({ tile, variant }: { tile: Tile; variant: 'block' | 'screen' }) => (
@@ -133,19 +136,30 @@ const ParallaxRow = ({ tiles, baseVelocity, variant }: RowProps) => {
 };
 
 const MarqueeGrid = () => {
+  const { t } = useLang();
+
+  const engineering: Tile[] = t.marquee.engineering.map((txt, i) => ({
+    ...txt,
+    ...ENGINEERING_STYLE[i],
+  }));
+  const screens: Tile[] = t.marquee.screens.map((txt, i) => ({
+    ...txt,
+    ...SCREENS_STYLE[i],
+  }));
+
   return (
     <section className="relative z-10 overflow-hidden bg-[#0C0C0C] py-16 sm:py-24">
       <div className="mx-auto mb-10 max-w-[1600px] px-5 sm:mb-14 sm:px-8 lg:px-12">
-        <p className="text-[clamp(0.75rem,1vw,0.95rem)] uppercase tracking-[0.4em] text-glass/50">
-          Selected work in motion
+        <p className="text-start text-[clamp(0.75rem,1vw,0.95rem)] uppercase tracking-[0.4em] text-glass/50">
+          {t.marquee.heading}
         </p>
       </div>
 
       <div className="flex flex-col gap-5">
         {/* Row 1 — moves right */}
-        <ParallaxRow tiles={ENGINEERING} baseVelocity={-2.2} variant="block" />
+        <ParallaxRow tiles={engineering} baseVelocity={-2.2} variant="block" />
         {/* Row 2 — moves left */}
-        <ParallaxRow tiles={SCREENS} baseVelocity={2.2} variant="screen" />
+        <ParallaxRow tiles={screens} baseVelocity={2.2} variant="screen" />
       </div>
     </section>
   );

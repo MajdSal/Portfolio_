@@ -3,6 +3,7 @@ import { useState } from 'react';
 import DotField from '../components/DotField';
 import Magnet from '../components/Magnet';
 import ContactButton from '../components/ContactButton';
+import { useLang } from '../i18n';
 
 // Verified avatar path (real photo lives in /public with this name).
 const AVATAR = '/profile image 2025-07-10 at 17.41.05_0c45143f.png';
@@ -19,6 +20,7 @@ const reveal = {
 
 const Hero = () => {
   const [imgSrc, setImgSrc] = useState(AVATAR);
+  const { t } = useLang();
 
   return (
     <section
@@ -47,7 +49,7 @@ const Hero = () => {
             animate="show"
             className="hero-heading select-none font-extrabold leading-[0.82] tracking-[-0.02em] text-[13vw] lg:text-[16vw]"
           >
-            Hi, I&rsquo;m
+            {t.hero.line1}
           </motion.h1>
 
           {/* Absolute-central portrait nestled between the heading lines */}
@@ -76,7 +78,7 @@ const Hero = () => {
                 onError={() => {
                   if (imgSrc !== AVATAR_FALLBACK) setImgSrc(AVATAR_FALLBACK);
                 }}
-                alt="Portrait of Majdallah"
+                alt={t.hero.line2}
                 width={420}
                 height={520}
                 loading="eager"
@@ -93,7 +95,7 @@ const Hero = () => {
             animate="show"
             className="hero-heading select-none font-extrabold leading-[0.82] tracking-[-0.02em] text-[13vw] lg:text-[16vw]"
           >
-            MajdAllah
+            {t.hero.line2}
           </motion.h1>
         </div>
 
@@ -105,14 +107,12 @@ const Hero = () => {
           animate="show"
           className="flex flex-col items-start gap-6 pb-10 sm:flex-row sm:items-end sm:justify-between lg:pb-14"
         >
-          <p className="max-w-md text-balance text-left text-[clamp(0.95rem,1.4vw,1.25rem)] font-light leading-relaxed text-glass/80">
-            A Software Engineer &amp; Multimedia Specialist creating
-            production-grade automation systems and unforgettable visual
-            platforms.
+          <p className="max-w-md text-balance text-start text-[clamp(0.95rem,1.4vw,1.25rem)] font-light leading-relaxed text-glass/80">
+            {t.hero.subtitle}
           </p>
 
           <div className="shrink-0">
-            <ContactButton />
+            <ContactButton label={t.hero.contact} />
           </div>
         </motion.div>
       </div>
@@ -124,7 +124,7 @@ const Hero = () => {
         transition={{ delay: 1.4, duration: 1 }}
         className="pointer-events-none absolute bottom-3 left-1/2 z-10 -translate-x-1/2 text-[0.7rem] uppercase tracking-[0.4em] text-glass/40"
       >
-        scroll
+        {t.hero.scroll}
       </motion.div>
     </section>
   );

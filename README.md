@@ -11,7 +11,10 @@ backdrop (`<DotField />`).
 - **Tailwind CSS 3** — design tokens, fluid `clamp()` typography
 - **Framer Motion** — scroll-driven reveals, parallax marquee, sticky card deck
 - **Lucide React** — iconography
-- **Kanit** (Google Fonts, weights 300–900)
+- **Kanit** (Latin) + **Cairo** (Arabic) — Google Fonts, weights 300–900
+- **Bilingual EN / AR** — a navbar toggle flips the whole page between English
+  (LTR) and Arabic (RTL). All copy lives in [`src/i18n.tsx`](src/i18n.tsx); the
+  design, colors, and animations are identical in both directions.
 
 ## Getting started
 

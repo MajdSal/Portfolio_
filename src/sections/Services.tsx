@@ -1,36 +1,16 @@
 import { motion } from 'framer-motion';
 import { ArrowUpRight } from 'lucide-react';
+import { useLang } from '../i18n';
 
-interface Service {
-  no: string;
-  title: string;
-  desc: string;
-}
-
-const SERVICES: Service[] = [
-  {
-    no: '01',
-    title: 'Software Engineering & Architecture',
-    desc: 'Full-stack development mapping modern systems, APIs, and decoupled modular architectures.',
-  },
-  {
-    no: '02',
-    title: 'AI Automation & Orchestration',
-    desc: 'Engineering autonomous multi-agent systems using frameworks like CrewAI to automate end-to-end data pipelines.',
-  },
-  {
-    no: '03',
-    title: 'Multimedia Production & Editing',
-    desc: 'High-impact visual storytelling, advanced photography, and professional digital asset grading.',
-  },
-  {
-    no: '04',
-    title: 'Project Coordination & DevOps',
-    desc: 'Managing continuous deployment workflows, monitoring field logistics, and assuring operational excellence under rigorous deadlines.',
-  },
-];
+const NUMERALS = ['01', '02', '03', '04'];
 
 const Services = () => {
+  const { t } = useLang();
+  const services = t.services.items.map((item, i) => ({
+    no: NUMERALS[i],
+    ...item,
+  }));
+
   return (
     <section
       id="services"
@@ -39,16 +19,15 @@ const Services = () => {
       <div className="mx-auto max-w-[1400px] px-5 py-20 sm:px-10 sm:py-28 lg:px-16">
         <div className="mb-12 flex flex-col gap-4 sm:mb-16 sm:flex-row sm:items-end sm:justify-between">
           <h2 className="ink-heading font-semibold tracking-[-0.02em] text-[clamp(2.25rem,6vw,5rem)] leading-[0.95]">
-            Services
+            {t.services.heading}
           </h2>
           <p className="max-w-sm text-[clamp(0.9rem,1.1vw,1.05rem)] font-light text-black/55">
-            Four disciplines, one operator — engineered for impact across the
-            full delivery lifecycle.
+            {t.services.subtitle}
           </p>
         </div>
 
         <ul className="border-t border-black/10">
-          {SERVICES.map((s, i) => (
+          {services.map((s, i) => (
             <motion.li
               key={s.no}
               initial={{ opacity: 0, y: 24 }}
