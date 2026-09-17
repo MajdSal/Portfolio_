@@ -1,0 +1,40 @@
+<svg viewBox="0 0 400 320" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Server stack routing REST endpoints">
+  <defs>
+    <radialGradient id="dbG" cx="0.5" cy="0.5" r="0.5">
+      <stop offset="0" stop-color="#C9A2F0" stop-opacity="0.4"/>
+      <stop offset="1" stop-color="#C9A2F0" stop-opacity="0"/>
+    </radialGradient>
+    <linearGradient id="dbP" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0" stop-color="#fff" stop-opacity="0.2"/>
+      <stop offset="1" stop-color="#fff" stop-opacity="0.06"/>
+    </linearGradient>
+  </defs>
+  <ellipse cx="200" cy="160" rx="180" ry="150" fill="url(#dbG)"/>
+
+  <!-- server slabs -->
+  <g stroke="#fff" stroke-opacity="0.3" stroke-width="1.6">
+    <rect x="42" y="78" width="120" height="46" rx="12" fill="url(#dbP)"/>
+    <rect x="42" y="137" width="120" height="46" rx="12" fill="url(#dbP)"/>
+    <rect x="42" y="196" width="120" height="46" rx="12" fill="url(#dbP)"/>
+  </g>
+  <g fill="#C9A2F0">
+    <circle cx="64" cy="101" r="5"/><circle cx="64" cy="160" r="5"/><circle cx="64" cy="219" r="5"/>
+  </g>
+  <g fill="#fff" fill-opacity="0.45">
+    <rect x="80" y="97" width="58" height="7" rx="3.5"/>
+    <rect x="80" y="156" width="44" height="7" rx="3.5"/>
+    <rect x="80" y="215" width="52" height="7" rx="3.5"/>
+  </g>
+
+  <!-- routes to endpoints -->
+  <g fill="none" stroke="#fff" stroke-opacity="0.45" stroke-width="2" stroke-linecap="round">
+    <path d="M162 101 C 230 101, 240 62, 306 62"/>
+    <path d="M162 160 H 306"/>
+    <path d="M162 219 C 230 219, 240 258, 306 258"/>
+  </g>
+  <g fill="#fff">
+    <circle cx="316" cy="62" r="7" opacity="0.9"/>
+    <circle cx="316" cy="160" r="7" opacity="0.7"/>
+    <circle cx="316" cy="258" r="7" opacity="0.55"/>
+  </g>
+</svg>

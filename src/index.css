@@ -60,6 +60,53 @@
     -webkit-text-fill-color: transparent;
     color: transparent;
   }
+
+  /* Marquee tile cover art. Two intersected fades keep the illustration clear
+     of the caption at the bottom and the icon badge on the leading side. The
+     horizontal fade follows the text side, so RTL flips it. */
+  .tile-cover {
+    -webkit-mask-image: linear-gradient(to left, #000 24%, transparent 94%),
+      linear-gradient(to top, transparent 42%, #000 68%);
+    mask-image: linear-gradient(to left, #000 24%, transparent 94%),
+      linear-gradient(to top, transparent 42%, #000 68%);
+    -webkit-mask-composite: source-in;
+    mask-composite: intersect;
+  }
+
+  html.lang-ar .tile-cover {
+    -webkit-mask-image: linear-gradient(to right, #000 24%, transparent 94%),
+      linear-gradient(to top, transparent 42%, #000 68%);
+    mask-image: linear-gradient(to right, #000 24%, transparent 94%),
+      linear-gradient(to top, transparent 42%, #000 68%);
+  }
+
+  /* Project cover art. On mobile it sits behind the copy and fades out toward
+     the bottom; from md up it bleeds in from the trailing edge and dissolves
+     into the card gradient. The fade follows the text side, so RTL flips it. */
+  .project-cover {
+    -webkit-mask-image: linear-gradient(to top, transparent 6%, #000 58%);
+    mask-image: linear-gradient(to top, transparent 6%, #000 58%);
+  }
+
+  @media (min-width: 768px) {
+    /* Two layers intersected: one fade toward the copy, one that clears the
+       lower strip so the live-link button sits under clean gradient. */
+    .project-cover {
+      -webkit-mask-image: linear-gradient(to left, #000 42%, transparent 97%),
+        linear-gradient(to top, transparent 104px, #000 184px);
+      mask-image: linear-gradient(to left, #000 42%, transparent 97%),
+        linear-gradient(to top, transparent 104px, #000 184px);
+      -webkit-mask-composite: source-in;
+      mask-composite: intersect;
+    }
+
+    html.lang-ar .project-cover {
+      -webkit-mask-image: linear-gradient(to right, #000 42%, transparent 97%),
+        linear-gradient(to top, transparent 104px, #000 184px);
+      mask-image: linear-gradient(to right, #000 42%, transparent 97%),
+        linear-gradient(to top, transparent 104px, #000 184px);
+    }
+  }
 }
 
 @layer utilities {

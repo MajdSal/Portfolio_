@@ -1,0 +1,87 @@
+<svg viewBox="0 0 900 700" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Automation node graph feeding an AI core">
+  <defs>
+    <linearGradient id="wfPanel" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0" stop-color="#ffffff" stop-opacity="0.17"/>
+      <stop offset="1" stop-color="#ffffff" stop-opacity="0.045"/>
+    </linearGradient>
+    <linearGradient id="wfEdge" x1="0" y1="0" x2="1" y2="0">
+      <stop offset="0" stop-color="#E9A8C9" stop-opacity="0.15"/>
+      <stop offset="0.55" stop-color="#E9A8C9" stop-opacity="0.75"/>
+      <stop offset="1" stop-color="#E9A8C9" stop-opacity="0.25"/>
+    </linearGradient>
+    <radialGradient id="wfCore" cx="0.5" cy="0.45" r="0.55">
+      <stop offset="0" stop-color="#ffffff" stop-opacity="0.9"/>
+      <stop offset="0.35" stop-color="#E9A8C9" stop-opacity="0.55"/>
+      <stop offset="1" stop-color="#B600A8" stop-opacity="0"/>
+    </radialGradient>
+    <radialGradient id="wfHalo" cx="0.5" cy="0.5" r="0.5">
+      <stop offset="0" stop-color="#B600A8" stop-opacity="0.5"/>
+      <stop offset="1" stop-color="#B600A8" stop-opacity="0"/>
+    </radialGradient>
+  </defs>
+
+  <!-- ambient depth -->
+  <ellipse cx="450" cy="350" rx="380" ry="330" fill="url(#wfHalo)"/>
+
+  <!-- edges: triggers -> core -->
+  <g fill="none" stroke="url(#wfEdge)" stroke-width="2.5" stroke-linecap="round">
+    <path d="M245 175 C 330 175, 320 350, 372 350"/>
+    <path d="M245 350 H 372"/>
+    <path d="M245 525 C 330 525, 320 350, 372 350"/>
+  </g>
+  <!-- edges: core -> outputs -->
+  <g fill="none" stroke="url(#wfEdge)" stroke-width="2.5" stroke-linecap="round">
+    <path d="M528 350 C 585 350, 575 195, 655 195"/>
+    <path d="M528 350 H 655"/>
+    <path d="M528 350 C 585 350, 575 505, 655 505"/>
+  </g>
+
+  <!-- travelling pulses -->
+  <g fill="#ffffff">
+    <circle cx="309" cy="255" r="4" opacity="0.85"/>
+    <circle cx="309" cy="350" r="4" opacity="0.5"/>
+    <circle cx="596" cy="268" r="4" opacity="0.7"/>
+    <circle cx="596" cy="440" r="4" opacity="0.45"/>
+  </g>
+
+  <!-- trigger nodes -->
+  <g stroke="#ffffff" stroke-opacity="0.22" stroke-width="1.5">
+    <rect x="95" y="143" width="150" height="64" rx="18" fill="url(#wfPanel)"/>
+    <rect x="95" y="318" width="150" height="64" rx="18" fill="url(#wfPanel)"/>
+    <rect x="95" y="493" width="150" height="64" rx="18" fill="url(#wfPanel)"/>
+  </g>
+  <g fill="#ffffff" fill-opacity="0.55">
+    <rect x="119" y="167" width="58" height="7" rx="3.5"/>
+    <rect x="119" y="184" width="92" height="5" rx="2.5"/>
+    <rect x="119" y="342" width="70" height="7" rx="3.5"/>
+    <rect x="119" y="359" width="84" height="5" rx="2.5"/>
+    <rect x="119" y="517" width="52" height="7" rx="3.5"/>
+    <rect x="119" y="534" width="96" height="5" rx="2.5"/>
+  </g>
+
+  <!-- AI core -->
+  <circle cx="450" cy="350" r="112" fill="url(#wfCore)"/>
+  <circle cx="450" cy="350" r="78" fill="#ffffff" fill-opacity="0.07" stroke="#ffffff" stroke-opacity="0.35" stroke-width="1.75"/>
+  <circle cx="450" cy="350" r="52" fill="none" stroke="#ffffff" stroke-opacity="0.2" stroke-width="1.25" stroke-dasharray="6 10"/>
+  <!-- orbiting satellites -->
+  <g fill="#ffffff">
+    <circle cx="450" cy="272" r="5.5" opacity="0.9"/>
+    <circle cx="518" cy="389" r="4.5" opacity="0.6"/>
+    <circle cx="382" cy="389" r="4.5" opacity="0.6"/>
+  </g>
+
+  <!-- output nodes -->
+  <g stroke="#ffffff" stroke-opacity="0.22" stroke-width="1.5">
+    <rect x="655" y="163" width="150" height="64" rx="18" fill="url(#wfPanel)"/>
+    <rect x="655" y="318" width="150" height="64" rx="18" fill="url(#wfPanel)"/>
+    <rect x="655" y="473" width="150" height="64" rx="18" fill="url(#wfPanel)"/>
+  </g>
+  <g fill="#ffffff" fill-opacity="0.55">
+    <rect x="679" y="187" width="64" height="7" rx="3.5"/>
+    <rect x="679" y="204" width="88" height="5" rx="2.5"/>
+    <rect x="679" y="342" width="54" height="7" rx="3.5"/>
+    <rect x="679" y="359" width="92" height="5" rx="2.5"/>
+    <rect x="679" y="497" width="74" height="7" rx="3.5"/>
+    <rect x="679" y="514" width="80" height="5" rx="2.5"/>
+  </g>
+</svg>

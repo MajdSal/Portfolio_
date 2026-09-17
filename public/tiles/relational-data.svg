@@ -1,0 +1,46 @@
+<svg viewBox="0 0 400 320" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Two database tables joined on a key">
+  <defs>
+    <radialGradient id="rdG" cx="0.5" cy="0.5" r="0.5">
+      <stop offset="0" stop-color="#7FD4E8" stop-opacity="0.36"/>
+      <stop offset="1" stop-color="#7FD4E8" stop-opacity="0"/>
+    </radialGradient>
+    <linearGradient id="rdP" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0" stop-color="#fff" stop-opacity="0.19"/>
+      <stop offset="1" stop-color="#fff" stop-opacity="0.05"/>
+    </linearGradient>
+  </defs>
+  <ellipse cx="200" cy="160" rx="185" ry="150" fill="url(#rdG)"/>
+
+  <!-- table A -->
+  <rect x="34" y="62" width="140" height="150" rx="16" fill="url(#rdP)" stroke="#fff" stroke-opacity="0.28" stroke-width="1.7"/>
+  <rect x="34" y="62" width="140" height="30" rx="16" fill="#fff" fill-opacity="0.14"/>
+  <rect x="34" y="80" width="140" height="12" fill="#fff" fill-opacity="0.14"/>
+  <g fill="#fff" fill-opacity="0.42">
+    <rect x="52" y="73" width="60" height="7" rx="3.5"/>
+    <rect x="52" y="110" width="88" height="6" rx="3"/>
+    <rect x="52" y="134" width="70" height="6" rx="3"/>
+    <rect x="52" y="158" width="82" height="6" rx="3"/>
+    <rect x="52" y="182" width="56" height="6" rx="3"/>
+  </g>
+  <circle cx="160" cy="137" r="6" fill="#7FD4E8"/>
+
+  <!-- table B -->
+  <rect x="226" y="108" width="140" height="150" rx="16" fill="url(#rdP)" stroke="#fff" stroke-opacity="0.28" stroke-width="1.7"/>
+  <rect x="226" y="108" width="140" height="30" rx="16" fill="#fff" fill-opacity="0.14"/>
+  <rect x="226" y="126" width="140" height="12" fill="#fff" fill-opacity="0.14"/>
+  <g fill="#fff" fill-opacity="0.42">
+    <rect x="244" y="119" width="52" height="7" rx="3.5"/>
+    <rect x="244" y="156" width="80" height="6" rx="3"/>
+    <rect x="244" y="180" width="64" height="6" rx="3"/>
+    <rect x="244" y="204" width="90" height="6" rx="3"/>
+    <rect x="244" y="228" width="58" height="6" rx="3"/>
+  </g>
+  <circle cx="240" cy="183" r="6" fill="#7FD4E8"/>
+
+  <!-- relation: one-to-many -->
+  <path d="M166 137 C 196 137, 200 183, 234 183" fill="none" stroke="#fff" stroke-opacity="0.6" stroke-width="2.2"/>
+  <g stroke="#fff" stroke-opacity="0.6" stroke-width="2" fill="none" stroke-linecap="round">
+    <path d="M234 183 l -14 -9"/>
+    <path d="M234 183 l -14 9"/>
+  </g>
+</svg>

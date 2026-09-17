@@ -1,0 +1,83 @@
+<svg viewBox="0 0 900 700" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Braided glass strands shattering into glass dust">
+  <defs>
+    <linearGradient id="mdCrimson" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0" stop-color="#C2185B" stop-opacity="0.15"/>
+      <stop offset="0.3" stop-color="#E9457F" stop-opacity="0.95"/>
+      <stop offset="0.72" stop-color="#C2185B" stop-opacity="0.8"/>
+      <stop offset="1" stop-color="#C2185B" stop-opacity="0"/>
+    </linearGradient>
+    <linearGradient id="mdGreen" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0" stop-color="#2E7D5B" stop-opacity="0.15"/>
+      <stop offset="0.3" stop-color="#3FBF86" stop-opacity="0.9"/>
+      <stop offset="0.72" stop-color="#2E7D5B" stop-opacity="0.75"/>
+      <stop offset="1" stop-color="#2E7D5B" stop-opacity="0"/>
+    </linearGradient>
+    <linearGradient id="mdSpec" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0" stop-color="#ffffff" stop-opacity="0"/>
+      <stop offset="0.35" stop-color="#ffffff" stop-opacity="0.75"/>
+      <stop offset="0.7" stop-color="#ffffff" stop-opacity="0.25"/>
+      <stop offset="1" stop-color="#ffffff" stop-opacity="0"/>
+    </linearGradient>
+    <radialGradient id="mdHalo" cx="0.5" cy="0.42" r="0.55">
+      <stop offset="0" stop-color="#E9A8C9" stop-opacity="0.34"/>
+      <stop offset="1" stop-color="#5a1e6e" stop-opacity="0"/>
+    </radialGradient>
+    <radialGradient id="mdBreak" cx="0.5" cy="0.5" r="0.5">
+      <stop offset="0" stop-color="#ffffff" stop-opacity="0.85"/>
+      <stop offset="0.45" stop-color="#E9457F" stop-opacity="0.35"/>
+      <stop offset="1" stop-color="#E9457F" stop-opacity="0"/>
+    </radialGradient>
+  </defs>
+
+  <ellipse cx="450" cy="300" rx="400" ry="330" fill="url(#mdHalo)"/>
+
+  <!-- braided strands: two rods twisting down the plate -->
+  <g fill="none" stroke-linecap="round">
+    <path d="M330 -20 C 470 120, 300 220, 430 330 C 520 405, 400 450, 452 500"
+          stroke="url(#mdCrimson)" stroke-width="26"/>
+    <path d="M560 -20 C 420 120, 590 220, 460 330 C 372 405, 496 450, 452 500"
+          stroke="url(#mdGreen)" stroke-width="26"/>
+    <!-- specular highlight riding the rods -->
+    <path d="M330 -20 C 470 120, 300 220, 430 330 C 520 405, 400 450, 452 500"
+          stroke="url(#mdSpec)" stroke-width="6" transform="translate(-6 0)"/>
+    <path d="M560 -20 C 420 120, 590 220, 460 330 C 372 405, 496 450, 452 500"
+          stroke="url(#mdSpec)" stroke-width="6" transform="translate(6 0)"/>
+  </g>
+
+  <!-- the break point -->
+  <circle cx="452" cy="505" r="76" fill="url(#mdBreak)"/>
+
+  <!-- 3D shards peeling off -->
+  <g fill="#ffffff" fill-opacity="0.55" stroke="#ffffff" stroke-opacity="0.3" stroke-width="1">
+    <path d="M418 528 l16 -9 6 17 -15 8 z"/>
+    <path d="M470 540 l19 6 -7 16 -17 -8 z"/>
+    <path d="M436 566 l13 12 -12 11 -9 -14 z"/>
+    <path d="M492 580 l15 -6 4 15 -14 4 z"/>
+    <path d="M398 574 l12 8 -9 13 -9 -10 z"/>
+  </g>
+
+  <!-- glass dust streaming out of frame -->
+  <g fill="#ffffff">
+    <circle cx="436" cy="606" r="3.2" opacity="0.8"/>
+    <circle cx="472" cy="624" r="2.2" opacity="0.6"/>
+    <circle cx="410" cy="632" r="2.6" opacity="0.7"/>
+    <circle cx="500" cy="612" r="1.8" opacity="0.5"/>
+    <circle cx="452" cy="650" r="2.9" opacity="0.65"/>
+    <circle cx="386" cy="660" r="1.9" opacity="0.45"/>
+    <circle cx="516" cy="656" r="2.4" opacity="0.55"/>
+    <circle cx="428" cy="676" r="1.7" opacity="0.4"/>
+    <circle cx="488" cy="684" r="2.1" opacity="0.42"/>
+    <circle cx="352" cy="618" r="1.6" opacity="0.35"/>
+    <circle cx="548" cy="628" r="1.5" opacity="0.32"/>
+    <circle cx="466" cy="566" r="2.0" opacity="0.7"/>
+    <circle cx="404" cy="548" r="1.7" opacity="0.6"/>
+  </g>
+  <g fill="#E9457F">
+    <circle cx="444" cy="628" r="2.0" opacity="0.6"/>
+    <circle cx="494" cy="646" r="1.6" opacity="0.45"/>
+  </g>
+  <g fill="#3FBF86">
+    <circle cx="418" cy="652" r="1.9" opacity="0.55"/>
+    <circle cx="470" cy="672" r="1.5" opacity="0.4"/>
+  </g>
+</svg>

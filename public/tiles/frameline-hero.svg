@@ -1,0 +1,50 @@
+<svg viewBox="0 0 400 320" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Braided glass strands breaking into dust">
+  <defs>
+    <linearGradient id="fhC" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0" stop-color="#C2185B" stop-opacity="0.2"/>
+      <stop offset="0.35" stop-color="#E9457F" stop-opacity="0.95"/>
+      <stop offset="1" stop-color="#C2185B" stop-opacity="0"/>
+    </linearGradient>
+    <linearGradient id="fhV" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0" stop-color="#2E7D5B" stop-opacity="0.2"/>
+      <stop offset="0.35" stop-color="#3FBF86" stop-opacity="0.9"/>
+      <stop offset="1" stop-color="#2E7D5B" stop-opacity="0"/>
+    </linearGradient>
+    <linearGradient id="fhS" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0" stop-color="#fff" stop-opacity="0"/>
+      <stop offset="0.4" stop-color="#fff" stop-opacity="0.7"/>
+      <stop offset="1" stop-color="#fff" stop-opacity="0"/>
+    </linearGradient>
+    <radialGradient id="fhG" cx="0.5" cy="0.35" r="0.55">
+      <stop offset="0" stop-color="#E9A8C9" stop-opacity="0.32"/>
+      <stop offset="1" stop-color="#E9A8C9" stop-opacity="0"/>
+    </radialGradient>
+  </defs>
+  <ellipse cx="200" cy="130" rx="180" ry="150" fill="url(#fhG)"/>
+
+  <g fill="none" stroke-linecap="round">
+    <path d="M142 -10 C 232 62, 128 118, 202 178 C 254 220, 180 240, 205 262"
+          stroke="url(#fhC)" stroke-width="17"/>
+    <path d="M258 -10 C 168 62, 272 118, 198 178 C 146 220, 220 240, 195 262"
+          stroke="url(#fhV)" stroke-width="17"/>
+    <path d="M142 -10 C 232 62, 128 118, 202 178 C 254 220, 180 240, 205 262"
+          stroke="url(#fhS)" stroke-width="4" transform="translate(-4 0)"/>
+  </g>
+
+  <!-- shards + dust falling out of frame -->
+  <g fill="#fff" fill-opacity="0.5" stroke="#fff" stroke-opacity="0.3" stroke-width="0.9">
+    <path d="M178 268 l11 -6 4 12 -10 5 z"/>
+    <path d="M214 276 l13 4 -5 11 -12 -5 z"/>
+    <path d="M192 296 l9 8 -8 8 -6 -10 z"/>
+  </g>
+  <g fill="#fff">
+    <circle cx="200" cy="292" r="2.4" opacity="0.75"/>
+    <circle cx="176" cy="304" r="1.8" opacity="0.55"/>
+    <circle cx="226" cy="300" r="2" opacity="0.6"/>
+    <circle cx="206" cy="314" r="1.6" opacity="0.45"/>
+    <circle cx="158" cy="290" r="1.5" opacity="0.4"/>
+    <circle cx="244" cy="314" r="1.4" opacity="0.35"/>
+  </g>
+  <circle cx="188" cy="308" r="1.7" fill="#E9457F" opacity="0.6"/>
+  <circle cx="216" cy="288" r="1.6" fill="#3FBF86" opacity="0.6"/>
+</svg>

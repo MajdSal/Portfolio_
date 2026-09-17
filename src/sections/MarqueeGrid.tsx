@@ -9,18 +9,18 @@ import {
   useMotionValue,
 } from 'framer-motion';
 import {
-  Boxes,
   Cpu,
-  GitBranch,
+  FileText,
   LayoutDashboard,
   Workflow,
-  Terminal,
   Layers,
   MonitorSmartphone,
   Database,
   Camera,
   Bot,
   ServerCog,
+  Sparkles,
+  PanelsTopLeft,
 } from 'lucide-react';
 import { useLang } from '../i18n';
 
@@ -36,26 +36,28 @@ type Tile = {
   icon: ReactNode;
   from: string;
   to: string;
+  image: string;
 };
 
-// Visual identity (icon + gradient) lives here; text comes from the i18n dict
-// and is merged by index at render time.
+// Visual identity (icon + gradient + cover art) lives here; text comes from the
+// i18n dict and is merged by index at render time. Each cover illustrates its
+// own label, so the two arrays must stay in the same order as the dict.
 const ENGINEERING_STYLE = [
-  { icon: <ServerCog />, from: '#1a0f2e', to: '#3a1052' },
-  { icon: <Bot />, from: '#0A1626', to: '#173a5e' },
-  { icon: <GitBranch />, from: '#241033', to: '#5a1e6e' },
-  { icon: <Database />, from: '#0A1626', to: '#1f4d6b' },
-  { icon: <Boxes />, from: '#2a0f24', to: '#6e1e5a' },
-  { icon: <Cpu />, from: '#101a2e', to: '#2b4d7a' },
+  { icon: <ServerCog />, from: '#1a0f2e', to: '#3a1052', image: '/tiles/django-backends.svg' },
+  { icon: <Bot />, from: '#0A1626', to: '#173a5e', image: '/tiles/ai-modules.svg' },
+  { icon: <Workflow />, from: '#241033', to: '#5a1e6e', image: '/tiles/n8n-automation.svg' },
+  { icon: <Database />, from: '#0A1626', to: '#1f4d6b', image: '/tiles/relational-data.svg' },
+  { icon: <FileText />, from: '#2a0f24', to: '#6e1e5a', image: '/tiles/technical-writing.svg' },
+  { icon: <Cpu />, from: '#101a2e', to: '#2b4d7a', image: '/tiles/algorithms-ds.svg' },
 ];
 
 const SCREENS_STYLE = [
-  { icon: <LayoutDashboard />, from: '#161024', to: '#3a1c5e' },
-  { icon: <Workflow />, from: '#0A1626', to: '#1f4d6b' },
-  { icon: <Camera />, from: '#2a0f24', to: '#7a1e63' },
-  { icon: <MonitorSmartphone />, from: '#101a2e', to: '#34557f' },
-  { icon: <Terminal />, from: '#1a0f2e', to: '#4a1c6e' },
-  { icon: <Layers />, from: '#0A1626', to: '#255a7a' },
+  { icon: <LayoutDashboard />, from: '#161024', to: '#3a1c5e', image: '/tiles/masar-dashboard.svg' },
+  { icon: <Layers />, from: '#0A1626', to: '#1f4d6b', image: '/tiles/frameline-hero.svg' },
+  { icon: <Camera />, from: '#2a0f24', to: '#7a1e63', image: '/tiles/photography-edit.svg' },
+  { icon: <MonitorSmartphone />, from: '#101a2e', to: '#34557f', image: '/tiles/responsive-web.svg' },
+  { icon: <Sparkles />, from: '#1a0f2e', to: '#4a1c6e', image: '/tiles/glsl-shaders.svg' },
+  { icon: <PanelsTopLeft />, from: '#0A1626', to: '#255a7a', image: '/tiles/workflow-platform.svg' },
 ];
 
 const TileCard = ({ tile, variant }: { tile: Tile; variant: 'block' | 'screen' }) => (
@@ -64,6 +66,18 @@ const TileCard = ({ tile, variant }: { tile: Tile; variant: 'block' | 'screen' }
       className="absolute inset-0"
       style={{ background: `linear-gradient(135deg, ${tile.from}, ${tile.to})` }}
     />
+    {/* cover art illustrating the label; masked clear of the icon and caption */}
+    <div
+      aria-hidden
+      className="tile-cover pointer-events-none absolute inset-y-0 end-0 w-[72%]"
+    >
+      <img
+        src={tile.image}
+        alt=""
+        decoding="async"
+        className="h-full w-full object-cover object-center"
+      />
+    </div>
     {/* faux browser chrome for the "app screens" row */}
     {variant === 'screen' && (
       <div className="absolute left-0 right-0 top-0 flex h-7 items-center gap-1.5 border-b border-white/10 bg-black/25 px-3">
