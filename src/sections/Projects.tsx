@@ -48,7 +48,7 @@ const PROJECT_STYLE = [
     from: '#241033',
     to: '#5a1e6e',
     image: '/projects/frameline.svg',
-    href: 'https://new-edits.vercel.app/',
+    href: 'https://frameline.agency/',
   },
 ];
 
