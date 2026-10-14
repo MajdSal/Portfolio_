@@ -120,9 +120,9 @@ const en: Dict = {
         tags: ['Python', 'AI Integration', 'n8n', 'SaaS'],
       },
       {
-        title: 'Masar',
-        desc: 'The Python and AI components of an enterprise management platform, built inside a six-member team during field training at TAQAT Academy. Final evaluation: 99.6%.',
-        tags: ['Python', 'Django', 'Team of 6', 'TAQAT Academy'],
+        title: 'AFAQ',
+        desc: 'A bilingual, Arabic-first website for the AFAQ software agency — a Next.js front-end with RTL layout, backed by a Laravel API and a Filament admin dashboard that manages every piece of site content.',
+        tags: ['Next.js', 'TypeScript', 'Laravel', 'Bilingual RTL'],
       },
       {
         title: 'Frameline',
@@ -212,9 +212,9 @@ const ar: Dict = {
         tags: ['بايثون', 'دمج الذكاء الاصطناعي', 'n8n', 'SaaS'],
       },
       {
-        title: 'مسار',
-        desc: 'مكوّنات بايثون والذكاء الاصطناعي في منصّة إدارة مؤسسية، بُنيت ضمن فريق من ستة أعضاء خلال التدريب الميداني في أكاديمية طاقات. التقييم النهائي: 99.6%.',
-        tags: ['بايثون', 'جانغو', 'فريق من ٦', 'أكاديمية طاقات'],
+        title: 'آفاق',
+        desc: 'موقع ثنائي اللغة بالعربية أولًا لوكالة آفاق للبرمجيات — واجهة Next.js باتجاه RTL، مدعومة بواجهة Laravel ولوحة تحكّم Filament تُدار منها جميع محتويات الموقع.',
+        tags: ['Next.js', 'TypeScript', 'Laravel', 'ثنائي اللغة RTL'],
       },
       {
         title: 'Frameline',

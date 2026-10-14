@@ -39,8 +39,8 @@ const PROJECT_STYLE = [
     icon: LayoutDashboard,
     from: '#0A1626',
     to: '#1f4d6b',
-    image: '/projects/masar.svg',
-    href: 'https://masar-ivory-beta.vercel.app/',
+    image: '/projects/afaq.svg',
+    href: 'https://afaq-majd22.vercel.app/',
   },
   {
     index: '03',
